@@ -1,0 +1,194 @@
+/* WM TRANSPORTE — TEMAS E MICROANIMAÇÕES
+   Tema inicial: escuro. A escolha do usuário fica salva no dispositivo.
+   Este arquivo complementa os estilos existentes sem alterar regras comerciais.
+*/
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.theme-toggle {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(217,164,65,.38);
+  border-radius: 30px;
+  background: rgba(255,255,255,.06);
+  color: #F0D28A;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background .25s ease, color .25s ease, border-color .25s ease,
+              transform .2s ease, box-shadow .25s ease;
+}
+.theme-toggle:hover {
+  background: rgba(217,164,65,.14);
+  border-color: rgba(217,164,65,.7);
+  transform: translateY(-1px);
+}
+.theme-toggle:active { transform: scale(.97); }
+.theme-toggle i { font-size: 14px; }
+
+/* Transições suaves de superfície, sem animar propriedades de layout. */
+body, .header, .card, .vehicle, .pay, .field, .modal-content,
+.modal input, .cta-box, .section-heading h2, .tl-text, .vehicle-name,
+.pay-name, .field select, .field input, .footer, .theme-toggle {
+  transition-property: background-color, background, color, border-color, box-shadow;
+  transition-duration: .28s;
+  transition-timing-function: ease;
+}
+
+/* MODO CLARO */
+html[data-theme="light"] {
+  color-scheme: light;
+  --navy: #14243A;
+  --navy-deep: #0D1B2D;
+  --navy-light: #233B58;
+  --blue: #A97825;
+  --blue-soft: #F8F1DE;
+  --gold: #B88935;
+  --gold-dark: #8F6724;
+  --gold-soft: #F8F1DE;
+  --silver: #D9E0E8;
+  --bg: #F3F6FA;
+  --white: #FFFFFF;
+  --text: #17263B;
+  --muted: #718096;
+  --line: #E2E8F0;
+  --shadow: 0 8px 28px rgba(10,27,50,.055), 0 2px 6px rgba(10,27,50,.035);
+  --shadow-hover: 0 14px 35px rgba(10,27,50,.10);
+}
+html[data-theme="light"] body { background: var(--bg); color: var(--text); }
+html[data-theme="light"] .header {
+  background: radial-gradient(circle at 90% 0%,rgba(8,127,229,.12),transparent 40%),
+              linear-gradient(135deg,#10243D,#173858 65%,#24496B);
+  border-bottom: 1px solid rgba(169,130,50,.22);
+}
+html[data-theme="light"] .header::before { border-color: rgba(215,182,93,.22); }
+html[data-theme="light"] .status-pill {
+  border-color: rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  color: #E7EDF5;
+}
+html[data-theme="light"] .theme-toggle {
+  background: #FFFFFF;
+  color: #263A52;
+  border-color: rgba(255,255,255,.55);
+}
+html[data-theme="light"] .theme-toggle:hover { background: #F8F1DE; color: #78551E; }
+html[data-theme="light"] .header-intro h1 { color: #FFFFFF; }
+html[data-theme="light"] .header-intro p { color: #D5E0EC; }
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .card-label,
+html[data-theme="light"] .tl-text,
+html[data-theme="light"] .vehicle-name,
+html[data-theme="light"] .field select,
+html[data-theme="light"] .field input,
+html[data-theme="light"] .pay-name { color: #172B45; }
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .vehicle-desc,
+html[data-theme="light"] .value-note { color: #718096; }
+html[data-theme="light"] .card {
+  background: #FFFFFF;
+  border-color: #E2E8F0;
+  box-shadow: var(--shadow);
+}
+html[data-theme="light"] .card-label i,
+html[data-theme="light"] .field-label i { color: #A97825; }
+html[data-theme="light"] .tl-row:hover { background: #F7F9FC; border-color: #E8EDF4; }
+html[data-theme="light"] .tl-dot { background: #FFFFFF; border-color: #E2E8F0; }
+html[data-theme="light"] .tl-row.origem .tl-dot { border-color: rgba(33,166,106,.3); }
+html[data-theme="light"] .tl-row.parada .tl-dot { border-color: rgba(184,137,53,.5); }
+html[data-theme="light"] .tl-row.destino .tl-dot { border-color: rgba(8,127,229,.3); }
+html[data-theme="light"] .tl-row.destino .tl-dot::after { background: #087FE5; }
+html[data-theme="light"] .tl-line { background: linear-gradient(180deg,#21A66A,#087FE5,#B88935); }
+html[data-theme="light"] .tl-chev { color: #91A0B2; }
+html[data-theme="light"] .tl-text.placeholder { color: #9AA6B5; }
+html[data-theme="light"] .add-parada {
+  background: #EAF3FD; border-color: #DCEAF8; color: #0871CA;
+}
+html[data-theme="light"] .add-parada:hover { background: #DCEEFF; }
+html[data-theme="light"] .vehicle {
+  background: linear-gradient(110deg,#F5F9FE,#FFFFFF);
+  border-color: #DCE7F3;
+}
+html[data-theme="light"] .vehicle-icon { background: #14243A; color: #D7B65D; }
+html[data-theme="light"] .vehicle-check { color: #087FE5; }
+html[data-theme="light"] .value-card {
+  border-color: rgba(184,137,53,.45);
+  background: radial-gradient(circle at 100% 0%,rgba(8,127,229,.16),transparent 45%),
+              linear-gradient(135deg,#10243D,#173858 75%);
+}
+html[data-theme="light"] .value-label { color: #E2C477; }
+html[data-theme="light"] .value-amount { color: #FFFFFF; }
+html[data-theme="light"] .pay { background: #FFFFFF; border-color: #E2E8F0; }
+html[data-theme="light"] .pay:hover { border-color: #B8D5F0; background: #F7FBFF; }
+html[data-theme="light"] .pay-icon { color: #14243A; }
+html[data-theme="light"] .pay.ativo {
+  border-color: #087FE5; background: #EAF3FD;
+  box-shadow: 0 0 0 2px rgba(8,127,229,.08);
+}
+html[data-theme="light"] .pay.ativo .pay-icon,
+html[data-theme="light"] .pay.ativo .pay-name { color: #0871CA; }
+html[data-theme="light"] .field { background: #FAFBFD; border-color: #E2E8F0; }
+html[data-theme="light"] .field:focus-within { background: #FFFFFF; border-color: #087FE5; }
+html[data-theme="light"] .field-label { color: #748297; }
+html[data-theme="light"] .field select option { background: #FFFFFF; color: #14243A; }
+html[data-theme="light"] .field input::placeholder { color: #9AA6B5; }
+html[data-theme="light"] .cta-box {
+  background: rgba(243,246,250,.94);
+  border-top-color: rgba(10,27,50,.07);
+}
+html[data-theme="light"] .cta-btn {
+  background: linear-gradient(110deg,#E7CA7B,#D7B65D,#C6A34C);
+  color: #14243A;
+}
+html[data-theme="light"] .modal { background: rgba(4,15,30,.62); }
+html[data-theme="light"] .modal-content { background: #FFFFFF; border-color: #E2E8F0; }
+html[data-theme="light"] .modal-handle { background: #D7DEE8; }
+html[data-theme="light"] .modal-title { color: #14243A; }
+html[data-theme="light"] .modal input { background: #F6F8FB; border-color: #E2E8F0; color: #14243A; }
+html[data-theme="light"] .modal input:focus { border-color: #087FE5; background: #FFFFFF; }
+html[data-theme="light"] .lista div { color: #17263B; }
+html[data-theme="light"] .lista div:hover { background: #F1F7FD; border-color: #DCEAF8; color: #0871CA; }
+html[data-theme="light"] .footer { color: #8794A5; }
+html[data-theme="light"] .footer strong { color: #14243A; }
+html[data-theme="light"] button:focus-visible,
+html[data-theme="light"] input:focus-visible,
+html[data-theme="light"] select:focus-visible { outline-color: rgba(8,127,229,.25); }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #CAD3DE; }
+
+/* Microanimações discretas */
+@keyframes wmFadeIn {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.header-intro { animation: wmFadeIn .55s ease both; }
+.card { animation: fadeUp .42s ease both; }
+.card:nth-of-type(2) { animation-delay: .04s; }
+.card:nth-of-type(3) { animation-delay: .08s; }
+.card:nth-of-type(4) { animation-delay: .12s; }
+.pay, .add-parada, .vehicle, .cta-btn { transition: transform .2s ease, box-shadow .25s ease, background .25s ease; }
+.pay:hover, .vehicle:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .header-actions { gap: 7px; }
+  .theme-toggle { min-height: 36px; padding: 7px 10px; font-size: 11px; }
+}
+@media (max-width: 380px) {
+  .header-actions { align-items: flex-end; flex-direction: column; }
+}

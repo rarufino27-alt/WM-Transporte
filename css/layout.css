@@ -1,0 +1,212 @@
+/* =====================================================
+   HEADER INSTITUCIONAL
+===================================================== */
+
+.header {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 20px 30px;
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(8,127,229,.22),
+      transparent 40%
+    ),
+    linear-gradient(135deg,var(--navy-deep),var(--navy) 65%,#102A4A);
+  color: white;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(215,182,93,.12);
+  border-radius: 50%;
+  right: -130px;
+  top: -155px;
+  box-shadow:
+    0 0 0 22px rgba(215,182,93,.025),
+    0 0 0 45px rgba(215,182,93,.02);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(145deg,#F4D98C,var(--gold),#A98232);
+  color: var(--navy);
+  font-family: var(--brand-font);
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 5px 18px rgba(215,182,93,.25);
+}
+
+.brand-name {
+  font-family: var(--brand-font);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+.brand-sub {
+  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #B9C8D9;
+  text-transform: uppercase;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 30px;
+  background: rgba(255,255,255,.07);
+  color: #DCE8F4;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #36D399;
+  box-shadow: 0 0 8px rgba(54,211,153,.7);
+}
+
+.header-intro {
+  margin-top: 29px;
+  max-width: 600px;
+}
+
+.header-intro h1 {
+  margin: 0;
+  font-size: clamp(25px,5vw,34px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1.1px;
+}
+
+.header-intro p {
+  margin: 10px 0 0;
+  color: #C4D3E4;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.header-accent {
+  width: 44px;
+  height: 3px;
+  margin-top: 17px;
+  border-radius: 5px;
+  background: var(--gold);
+}
+
+/* =====================================================
+   LAYOUT PRINCIPAL
+===================================================== */
+
+.app-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 145px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.35fr) minmax(280px,.85fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.main-column,
+.side-column {
+  min-width: 0;
+}
+
+.section-heading {
+  margin: 0 0 13px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+  color: var(--navy);
+}
+
+.section-heading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.card {
+  padding: 19px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  animation: fadeUp .4s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.card-label i {
+  color: var(--blue);
+  font-size: 14px;
+}

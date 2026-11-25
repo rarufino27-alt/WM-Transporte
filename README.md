@@ -26,7 +26,7 @@ Os arquivos abaixo foram preservados, sem exclusão, porque ainda precisamos con
 
 ## Pontos que precisam de validação antes de remover ou ativar
 
-1. `index.html` ainda referencia `core/supabase.js`, mas esse arquivo não está presente no repositório recebido. A referência foi mantida nesta etapa para não remover uma integração sem autorização.
+1. Supabase: não está sendo utilizado pela calculadora atual. As duas referências de carregamento foram removidas do `index.html` para evitar dependências externas desnecessárias. A integração poderá ser adicionada futuramente, quando houver uma necessidade concreta.
 2. `service-worker.js` lista páginas (`origem.html`, `destino.html`, `resumo.html`) que não aparecem no ZIP. Também não encontramos registro do service worker no `index.html`.
 3. `manifest.json` aponta para `icons/192.png` e `icons/512.png`, enquanto os arquivos presentes são `icons/icon-192.png` e `icons/icon-512.png`.
 4. Os estilos em `theme/` e alguns scripts em `core/` e `js/` não são carregados pelo `index.html` atual. Foram preservados até confirmar se são realmente descartáveis.
@@ -34,3 +34,14 @@ Os arquivos abaixo foram preservados, sem exclusão, porque ainda precisamos con
 ## Regra de preservação
 
 A separação inicial retirou CSS e JavaScript do `index.html` para arquivos externos. Não foram alteradas intencionalmente as regras de cálculo, os eventos, os dados JSON ou o fluxo de solicitação pelo WhatsApp.
+
+
+## Organização do CSS
+
+O CSS foi separado em três arquivos sem reescrever as regras existentes:
+- `css/layout.css`: cabeçalho e estrutura principal.
+- `css/components.css`: componentes, responsividade e ajustes de legibilidade.
+- `css/theme.css`: estilos globais, variáveis e identidade visual WM Transporte.
+
+Ordem de carregamento no `index.html`: `layout.css`, `components.css`, `theme.css`.
+Essa ordem mantém os ajustes finais de identidade visual por último na cascata.

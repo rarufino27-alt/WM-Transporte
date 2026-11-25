@@ -1,0 +1,145 @@
+/* =====================================================
+   WM TRANSPORTE — MICROANIMAÇÕES
+   Apenas apresentação. Não altera cálculos ou eventos.
+===================================================== */
+
+/* Entrada suave do conteúdo principal */
+@keyframes wm-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes wm-header-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.header .brand-row {
+  animation: wm-header-enter .55s ease-out both;
+}
+
+.header .header-intro {
+  animation: wm-header-enter .65s .10s ease-out both;
+}
+
+.section-heading {
+  animation: wm-enter .5s .08s ease-out both;
+}
+
+/* Entrada escalonada dos cartões */
+.main-column .card,
+.side-column .card {
+  animation-name: wm-enter;
+  animation-duration: .55s;
+  animation-timing-function: cubic-bezier(.2,.7,.25,1);
+  animation-fill-mode: both;
+}
+
+.main-column .card:nth-of-type(1),
+.side-column .card:nth-of-type(1) { animation-delay: .08s; }
+
+.main-column .card:nth-of-type(2),
+.side-column .card:nth-of-type(2) { animation-delay: .16s; }
+
+.main-column .card:nth-of-type(3),
+.side-column .card:nth-of-type(3) { animation-delay: .24s; }
+
+.main-column .card:nth-of-type(4),
+.side-column .card:nth-of-type(4) { animation-delay: .32s; }
+
+/* Resposta visual discreta à interação */
+@media (hover: hover) and (pointer: fine) {
+  .card {
+    transition: transform .22s ease, box-shadow .22s ease,
+                border-color .22s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .pay:hover,
+  .add-parada:hover {
+    transform: translateY(-2px);
+  }
+
+  .vehicle {
+    transition: transform .22s ease, border-color .22s ease;
+  }
+
+  .vehicle:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.tl-row,
+.pay,
+.add-parada,
+.cta-btn,
+.theme-toggle {
+  transition-timing-function: cubic-bezier(.2,.7,.25,1);
+}
+
+/* O botão principal recebe um realce sutil, sem movimento contínuo */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -45%;
+  width: 28%;
+  height: 220%;
+  background: rgba(255,255,255,.16);
+  transform: rotate(22deg) translateX(-220%);
+  transition: transform .65s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn:hover::after {
+    transform: rotate(22deg) translateX(650%);
+  }
+}
+
+/* Respeita a preferência de acessibilidade do dispositivo */
+@media (prefers-reduced-motion: reduce) {
+  .header .brand-row,
+  .header .header-intro,
+  .section-heading,
+  .main-column .card,
+  .side-column .card {
+    animation: none !important;
+  }
+
+  .card,
+  .vehicle,
+  .pay,
+  .add-parada,
+  .cta-btn,
+  .theme-toggle,
+  .tl-row {
+    transition-duration: .01ms !important;
+    transform: none !important;
+  }
+
+  .cta-btn::after {
+    display: none;
+  }
+}

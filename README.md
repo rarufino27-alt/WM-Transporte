@@ -55,3 +55,12 @@ Essa ordem mantém os ajustes finais de identidade visual por último na cascata
 - `css/theme-modes.css` contém os ajustes dos dois temas e microanimações.
 - `js/theme-toggle.js` controla a alternância sem interferir nos cálculos ou tarifas.
 - Animações respeitam `prefers-reduced-motion` do dispositivo.
+
+
+## Animações
+
+- `css/animations.css` adiciona entradas suaves ao cabeçalho, títulos e cartões.
+- Inclui microinterações em cartões, opções de pagamento, rota e botão principal.
+- Não altera cálculos, tarifas, dados, eventos ou integração de solicitação.
+- Respeita `prefers-reduced-motion` para usuários que preferem movimento reduzido.
+- O arquivo é carregado depois dos temas para manter a prioridade dos ajustes visuais.

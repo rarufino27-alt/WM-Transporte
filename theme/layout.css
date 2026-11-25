@@ -1,0 +1,171 @@
+/* =========================================================
+🎯 RF LAYOUT SYSTEM
+========================================================= */
+
+/* ===== RESET GLOBAL ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+/* =========================================================
+🎯 BODY
+========================================================= */
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:var(--bg-main);
+  color:var(--text-primary);
+  animation:fadePage .3s ease;
+}
+
+@keyframes fadePage{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================================================
+🎯 HEADER
+========================================================= */
+.top-white{
+  background:var(--bg-card);
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom-left-radius:20px;
+  border-bottom-right-radius:20px;
+  box-shadow:var(--shadow-soft);
+  width:100%;
+  max-width:480px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-img{
+  height:40px;
+  width:40px;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+.logo-text-dark{
+  font-weight:700;
+  letter-spacing:.4px;
+  color:var(--text-primary);
+  font-size:1rem;
+}
+
+.menu-btn-dark{
+  font-size:22px;
+  cursor:pointer;
+  color:var(--text-primary);
+}
+
+/* =========================================================
+🎯 MENU LATERAL
+========================================================= */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(4px);
+  display:none;
+  z-index:99;
+}
+
+.menu{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100%;
+  background:var(--bg-card);
+  transition:.3s;
+  z-index:100;
+  padding:24px;
+  box-shadow:10px 0 30px rgba(0,0,0,.5);
+}
+
+.menu.ativo{
+  left:0;
+}
+
+.menu h3{
+  margin-bottom:20px;
+  color:var(--primary);
+  font-size:20px;
+  font-weight:700;
+}
+
+.menu-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.2s;
+  color:var(--text-primary);
+}
+
+.menu-item:hover{
+  background:rgba(255,255,255,0.05);
+  transform:translateX(4px);
+}
+
+/* =========================================================
+🎯 CONTAINER CENTRAL (PADRÃO APP)
+========================================================= */
+.center{
+  width:100%;
+  max-width:480px;
+  margin:0 auto;
+  padding:0 12px;
+}
+
+/* PADRÃO PARA CARDS */
+.card,
+.card-modern{
+  width:100%;
+}
+
+/* =========================================================
+🎯 TÍTULOS
+========================================================= */
+.titulo-central{
+  text-align:center;
+  font-weight:700;
+  font-size:1.2rem;
+  margin-top:10px;
+  color:var(--text-primary);
+}
+
+/* =========================================================
+🎯 FOOTER / ÁREA INFERIOR
+========================================================= */
+.bottom{
+  width:90%;
+  max-width:420px;
+  margin:20px auto 40px auto;
+}
+
+/* ESPAÇO PARA BOTÃO FIXO */
+.app-container{
+  padding-bottom:120px;
+}

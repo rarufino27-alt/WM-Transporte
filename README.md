@@ -45,3 +45,13 @@ O CSS foi separado em três arquivos sem reescrever as regras existentes:
 
 Ordem de carregamento no `index.html`: `layout.css`, `components.css`, `theme.css`.
 Essa ordem mantém os ajustes finais de identidade visual por último na cascata.
+
+
+## Temas e animações
+
+- O modo escuro é o padrão no primeiro acesso.
+- O botão no cabeçalho alterna entre modo escuro e modo claro.
+- A escolha é salva localmente no navegador (`localStorage`, chave `wm-theme`).
+- `css/theme-modes.css` contém os ajustes dos dois temas e microanimações.
+- `js/theme-toggle.js` controla a alternância sem interferir nos cálculos ou tarifas.
+- Animações respeitam `prefers-reduced-motion` do dispositivo.
